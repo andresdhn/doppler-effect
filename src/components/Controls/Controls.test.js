@@ -1,22 +1,22 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import { findByTestAtrr } from '../../../utils'
-import Controls from './index.js'
+import React from 'react';
+import { shallow } from 'enzyme';
+import { findByTestAtrr } from '../../utils';
+import Controls from './index.js';
 
 const setUp = (props = {}) => {
-    const component = shallow(<Controls {...props} />)
-    return component
-}
+    const component = shallow(<Controls {...props} />);
+    return component;
+};
 
 describe('Controls component', () => {
-    let wrapper
+    let wrapper;
 
     beforeEach(() => {
-        wrapper = setUp()
-    })
+        wrapper = setUp();
+    });
 
     it('Should render without error', () => {
-        const component = findByTestAtrr(wrapper, 'controlsComponent')
-        expect(component.length).toBe(1)
-    })
-})
+        const component = findByTestAtrr(wrapper, 'controlsComponent');
+        expect(component.length).toBe(1);
+    });
+});

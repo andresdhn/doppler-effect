@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Simulation from '../Simulation';
+import Star from '../Star';
 import Controls from '../Controls';
 //
 const StyledSimulator = styled.div`
@@ -9,12 +9,7 @@ const StyledSimulator = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-
-    background-color: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+    min-height: 600px;
 `;
 
 const Simulator = () => {
@@ -26,7 +21,7 @@ const Simulator = () => {
 
     return (
         <StyledSimulator>
-            <Simulation />
+            <Star velocity={velocity} />
             <Controls
                 velocity={velocity}
                 onVelocityChange={handleVelocityChange}

@@ -7,10 +7,25 @@ const StyledControls = styled.section`
     bottom: 0;
     width: 100%;
     height: 150px;
+    background-color: #ffffff;
+`;
+
+const StyledForm = styled.form`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #ffffff;
+
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+`;
+
+const FormGroup = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 `;
 
 const StyledInput = styled.input`
@@ -79,22 +94,26 @@ const Controls = props => {
 
     return (
         <StyledControls data-test="controlsComponent">
-            <label htmlFor="velocity">Velocity(Km/s)</label>
-            <StyledInput
-                type="number"
-                name="velocity"
-                value={velocity}
-                min={-100}
-                max={100}
-                onChange={onInputChange}
-            />
-            <StyledRange
-                type="range"
-                value={velocity}
-                min={-100}
-                max={100}
-                onChange={onInputChange}
-            />
+            <StyledForm>
+                <FormGroup>
+                    <label htmlFor="velocity">Velocity(Km/s)</label>
+                    <StyledInput
+                        type="number"
+                        name="velocity"
+                        value={velocity}
+                        min={-100}
+                        max={100}
+                        onChange={onInputChange}
+                    />
+                </FormGroup>
+                <StyledRange
+                    type="range"
+                    value={velocity}
+                    min={-100}
+                    max={100}
+                    onChange={onInputChange}
+                />
+            </StyledForm>
         </StyledControls>
     );
 };

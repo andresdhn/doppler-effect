@@ -1,7 +1,8 @@
 import React from 'react';
-import Wrapper from './components/Wrapper';
+import Simulator from './components/Simulator';
 import { createGlobalStyle } from 'styled-components';
-
+import space from './images/space-bg.png';
+//
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'Roboto';
@@ -24,9 +25,11 @@ const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         line-height: 1.2;
 
-        background-color: #cdcdcd;
+        background: url(${space}) repeat bottom center;
+        background-size: 100% auto;
+        background-color: #000000;
     }
-    
+
     .App{
         padding: 0 5%;
     }
@@ -36,7 +39,7 @@ function App() {
     return (
         <div className="App" data-test="appComponent">
             <GlobalStyle />
-            <Wrapper />
+            <Simulator />
         </div>
     );
 }

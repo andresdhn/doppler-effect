@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from '../../../utils';
+import { findByTestAtrr } from '../../utils';
 import Wrapper from './index.js';
 
 const setUp = (props = {}) => {
