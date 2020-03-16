@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     body{
@@ -25,13 +26,17 @@ const GlobalStyle = createGlobalStyle`
 
         background-color: #cdcdcd;
     }
+    
+    .App{
+        padding: 0 5%;
+    }
 `;
 
 function App() {
     return (
         <div className="App" data-test="appComponent">
             <GlobalStyle />
-            <Wrapper></Wrapper>
+            <Wrapper />
         </div>
     );
 }
