@@ -1,9 +1,23 @@
 import React from 'react';
+import Wrapper from './components/Wrapper';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        background-color: #cdcdcd;
+    }
+`;
 
 function App() {
     return (
         <div className="App" data-test="appComponent">
-            <h1>Yolo!</h1>
+            <GlobalStyle />
+            <Wrapper></Wrapper>
         </div>
     );
 }
