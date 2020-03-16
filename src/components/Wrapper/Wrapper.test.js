@@ -10,6 +10,7 @@ const setUp = (props = {}) => {
 
 describe('Wrapper component', () => {
     let wrapper;
+
     beforeEach(() => {
         wrapper = setUp();
     });

@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
     display: block;
     height: 100%;
     max-width: 600px;
+    min-width: 300px;
     min-height: 700px;
     margin: 10% auto;
 `;
