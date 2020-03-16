@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Simulator from '../Simulator';
+//
 const StyledWrapper = styled.div`
+    position: relative;
     display: block;
-    width: 100%;
-    height: auto;
-    max-width: 900px;
+    height: 100%;
+    max-width: 600px;
+    min-height: 700px;
     margin: 10% auto;
-    padding: 0 5%;
 `;
 
-const Wrapper = props => {
-    const { children } = props;
+const Wrapper = () => {
     return (
-        <StyledWrapper data-test="wrapperComponent">{children}</StyledWrapper>
+        <StyledWrapper data-test="wrapperComponent">
+            <Simulator />
+        </StyledWrapper>
     );
 };
 
