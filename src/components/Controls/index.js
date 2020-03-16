@@ -65,8 +65,20 @@ const StyledRange = styled.input`
 const Controls = props => {
     const { velocity, onVelocityChange } = props;
 
+    const onInputChange = e => {
+        let val = e.target.value;
+        let regx = /^-?[0-9]+$/;
+
+        if (val === '' || regx.test(val)) {
+            if (val >= -100 && val <= 100) {
+                onVelocityChange(val);
+            }
+        }
+        return false;
+    };
+
     return (
-        <StyledControls>
+        <StyledControls data-test="controlsComponent">
             <label htmlFor="velocity">Velocity(Km/s)</label>
             <StyledInput
                 type="number"
@@ -74,14 +86,14 @@ const Controls = props => {
                 value={velocity}
                 min={-100}
                 max={100}
-                onChange={e => onVelocityChange(e.target.value)}
+                onChange={onInputChange}
             />
             <StyledRange
                 type="range"
                 value={velocity}
                 min={-100}
                 max={100}
-                onChange={e => onVelocityChange(e.target.value)}
+                onChange={onInputChange}
             />
         </StyledControls>
     );
