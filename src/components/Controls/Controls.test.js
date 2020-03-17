@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from '../../utils';
+import { findByTestAtrr, checkProps } from '../../utils';
 import Controls from './index.js';
 
 const setUp = (props = {}) => {
@@ -9,14 +9,39 @@ const setUp = (props = {}) => {
 };
 
 describe('Controls component', () => {
-    let wrapper;
+    describe('Checking PropTypes', () => {
+        const expectedProps = {
+            velocity: 0,
+        };
 
-    beforeEach(() => {
-        wrapper = setUp();
+        const propsErr = checkProps(Controls, expectedProps);
+        expect(propsErr).toBeUndefined();
     });
 
-    it('Should render without error', () => {
-        const component = findByTestAtrr(wrapper, 'controlsComponent');
-        expect(component.length).toBe(1);
+    describe('Have Props', () => {
+        let wrapper;
+
+        beforeEach(() => {
+            const props = {
+                velocity: 0,
+            };
+
+            wrapper = setUp(props);
+        });
+
+        it('Should render without error', () => {
+            const component = findByTestAtrr(wrapper, 'controlsComponent');
+            expect(component.length).toBe(1);
+        });
+
+        it('Should render an Velocity Field', () => {
+            const component = findByTestAtrr(wrapper, 'velocityInput');
+            expect(component.length).toBe(1);
+        });
+
+        it('Should render an Velocity Range', () => {
+            const component = findByTestAtrr(wrapper, 'velocityRange');
+            expect(component.length).toBe(1);
+        });
     });
 });

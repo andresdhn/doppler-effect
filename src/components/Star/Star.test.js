@@ -8,7 +8,7 @@ const setUp = (props = {}) => {
     return component;
 };
 
-describe('Wrapper component', () => {
+describe('Star component', () => {
     let wrapper;
 
     beforeEach(() => {

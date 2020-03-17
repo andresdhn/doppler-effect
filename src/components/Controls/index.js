@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 //
 const StyledControls = styled.section`
@@ -104,6 +105,7 @@ const Controls = props => {
                         min={-100}
                         max={100}
                         onChange={onInputChange}
+                        data-test="velocityInput"
                     />
                 </FormGroup>
                 <StyledRange
@@ -112,10 +114,15 @@ const Controls = props => {
                     min={-100}
                     max={100}
                     onChange={onInputChange}
+                    data-test="velocityRange"
                 />
             </StyledForm>
         </StyledControls>
     );
+};
+
+Controls.propTypes = {
+    velocity: PropTypes.number,
 };
 
 export default Controls;
