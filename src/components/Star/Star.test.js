@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from '../../utils';
+import { findByTestAtrr, checkProps } from '../../utils';
 import Star from './index.js';
 
 const setUp = (props = {}) => {
@@ -9,14 +9,25 @@ const setUp = (props = {}) => {
 };
 
 describe('Star component', () => {
-    let wrapper;
+    describe('Checking PropTypes', () => {
+        const expectedProps = {
+            velocity: 0,
+        };
 
-    beforeEach(() => {
-        wrapper = setUp();
+        const propsErr = checkProps(Star, expectedProps);
+        expect(propsErr).toBeUndefined();
     });
 
-    it('Should render without error', () => {
-        const component = findByTestAtrr(wrapper, 'starComponent');
-        expect(component.length).toBe(1);
+    describe('Have Props', () => {
+        let wrapper;
+
+        beforeEach(() => {
+            wrapper = setUp();
+        });
+
+        it('Should render without error', () => {
+            const component = findByTestAtrr(wrapper, 'starComponent');
+            expect(component.length).toBe(1);
+        });
     });
 });

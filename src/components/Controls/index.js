@@ -7,20 +7,33 @@ const StyledControls = styled.section`
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 150px;
+    height: 250px;
     background-color: #ffffff;
 `;
 
 const StyledForm = styled.form`
-    position: relative;
+    position: absolute;
+    top 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: row;
 
     width: 100%;
-    height: 100%;
-    max-width: 900px;
+    height: 50%;
+    max-width: 600px;
     margin: 0 auto;
+
+    border-radius: 25px;
+    border: 1px solid #cdcdcd;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 `;
 
 const FormGroup = styled.div`
@@ -43,11 +56,14 @@ const StyledInput = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 1;
+
+    margin: 40px 20px;
 `;
 
 const StyledRange = styled.input`
     -webkit-appearance: none;
-    width: auto;
+    width: 170px;
+    margin-left: 20px;
 
     &:focus {
         outline: none;
@@ -57,7 +73,7 @@ const StyledRange = styled.input`
         width: 100%;
         height: 4px;
         cursor: pointer;
-        background: #0269b3;
+        background: #444444;
         border-radius: 0px;
         border: 0px solid rgba(0, 0, 0, 0);
     }
@@ -67,15 +83,24 @@ const StyledRange = styled.input`
         height: 30px;
         width: 15px;
         border-radius: 5px;
-        background: #0269b3;
+        background: #444444;
         cursor: pointer;
         -webkit-appearance: none;
         margin-top: -13px;
     }
 
     &:focus::-webkit-slider-runnable-track {
-        background: #0269b3;
+        background: #444444;
     }
+`;
+
+const StyledFooter = styled.footer`
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    color: #606060;
 `;
 
 const Controls = props => {
@@ -87,7 +112,7 @@ const Controls = props => {
 
         if (val === '' || regx.test(val)) {
             if (val >= -100 && val <= 100) {
-                onVelocityChange(val);
+                onVelocityChange(parseFloat(val));
             }
         }
         return false;
@@ -117,6 +142,11 @@ const Controls = props => {
                     data-test="velocityRange"
                 />
             </StyledForm>
+
+            <StyledFooter>
+                The Doppler Effect on light Simulation by Andres Hernandez
+                @andresdhn
+            </StyledFooter>
         </StyledControls>
     );
 };
