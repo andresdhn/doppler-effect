@@ -21,34 +21,34 @@ const StarContainer = styled.div`
 
 const glowAnimation = effect => keyframes`
     0 {
-        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 0px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
     40% {
-        box-shadow: 0 0 20px 20px rgba(${effect}, 0.5), inset 0 0 20px 10px rgba(${effect}, 0.2);
+        box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
     }
     60% {
-        box-shadow: 0 0 20px 20px rgba(${effect}, 0.5), inset 0 0 20px 10px rgba(${effect}, 0.2);
+        box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
     }
     100% {
-        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 0px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
 `;
 
 const crownAnimation = keyframes`
     0 {
-        transform: rotate(0deg) scale(0.5);
+        transform: rotate(0deg) scale(0.7);
     }
     20% {
-        transform: rotate(-20deg) scale(0.7);
+        transform: rotate(-20deg) scale(0.9);
     }
     40% {
-        transform: rotate(0deg) scale(0.9);
+        transform: rotate(0deg) scale(0.5);
     }
     60% {
-        transform: rotate(-50deg) scale(0.7);
+        transform: rotate(-50deg) scale(0.9);
     }
     100% {
-        transform: rotate(0deg) scale(0.5);
+        transform: rotate(0deg) scale(0.7);
     }
 `;
 
@@ -62,7 +62,7 @@ const StarCrown = styled.div`
 
     background: url(${crown}) no-repeat top center;
     background-size: 100%;
-    animation: ${crownAnimation} 20s infinite;
+    animation: ${crownAnimation} 40s infinite alternate;
 `;
 
 const StarCore = styled.div`
@@ -97,8 +97,7 @@ const StarGlow = styled.div`
     height: 30%;
     border-radius: 50%;
     transform: translate3d(-50%, -50%, 0);
-    animation: ${props => glowAnimation(props.color)} 6s infinite;
-    animation-direction: alternate;
+    animation: ${props => glowAnimation(props.color)} 6s infinite alternate;
 `;
 
 const Star = props => {
@@ -119,7 +118,6 @@ const Star = props => {
             <StarCore
                 style={{
                     backgroundColor: `rgb(${effect})`,
-                    opacity: intensity - 0.5,
                 }}
             />
             <StarImg />

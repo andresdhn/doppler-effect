@@ -2,7 +2,7 @@
 
 Simple simulation that exaggerates how a star changes colour as it moves toward and away from an observer. -- the Doppler effect on light.
 
-## Installing
+## Getting ready
 
 Install all dependencies
 
@@ -15,10 +15,10 @@ $ npm install
 Run all tests
 
 ```
-$ npm run test --a
+$ npm run test
 ```
 
-Start Development server
+Start Dev server
 
 ```
 $ npm start
