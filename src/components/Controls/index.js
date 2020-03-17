@@ -13,7 +13,7 @@ const StyledControls = styled.section`
 
 const StyledForm = styled.form`
     position: absolute;
-    top 50%;
+    top 40%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
 
@@ -23,7 +23,7 @@ const StyledForm = styled.form`
     flex-direction: row;
 
     width: 100%;
-    height: 50%;
+    height: 60%;
     max-width: 600px;
     margin: 0 auto;
 
@@ -100,7 +100,11 @@ const StyledFooter = styled.footer`
     width: 100%;
     font-size: 14px;
     text-align: center;
-    color: #606060;
+
+    a {
+        color: #606060;
+        text-decoration: none;
+    }
 `;
 
 const Controls = props => {
@@ -144,8 +148,15 @@ const Controls = props => {
             </StyledForm>
 
             <StyledFooter>
-                The Doppler Effect on light Simulation by Andres Hernandez
-                @andresdhn
+                The Doppler effect on light &ndash; Simulation by Andres
+                Hernandez{' '}
+                <a
+                    href="https://github.com/andresdhn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    @andresdhn
+                </a>
             </StyledFooter>
         </StyledControls>
     );
