@@ -106,10 +106,10 @@ const Star = props => {
 
     const effect =
         velocity === 0
-            ? '250, 250, 250'
+            ? '250, 250, 250' // White
             : velocity < 0
-            ? '0, 0, 250'
-            : '250, 0, 0';
+            ? '0, 0, 250' // Blue
+            : '250, 0, 0'; // Red
 
     const intensity = Math.abs(parseFloat(velocity / 100));
 
