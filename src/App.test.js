@@ -1,22 +1,15 @@
 import React from 'react';
-import App from './App';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from './utils';
+import App from './App.js';
 //
-const setUp = (props = {}) => {
-    const wrapper = shallow(<App {...props} />);
-    return wrapper;
-};
-
-describe('App Component', () => {
+describe('App component', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = setUp();
+        wrapper = shallow(<App />);
     });
 
-    it('Should render without errors', () => {
-        const component = findByTestAtrr(wrapper, 'appComponent');
-        expect(component.length).toBe(1);
+    it('Shallow Renders', () => {
+        expect(wrapper).not.toBeNull();
     });
 });

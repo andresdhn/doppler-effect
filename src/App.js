@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
     return (
-        <div className="App" data-test="appComponent">
+        <div className="App">
             <GlobalStyle />
             <Simulator />
         </div>

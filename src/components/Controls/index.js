@@ -122,8 +122,8 @@ const Controls = props => {
         onVelocityChange(Number(val));
     };
 
-    const onKeyPressed = e => {
-        // If backSpace is pressed
+    const onKeyPressed = (e, onVelocityChange) => {
+        // If backspace is pressed
         if (e.keyCode === 8) {
             // Check for length on input element
             if (
@@ -153,7 +153,6 @@ const Controls = props => {
                         max={100}
                         onChange={onInputChange}
                         onKeyDown={onKeyPressed}
-                        data-test="velocityInput"
                     />
                 </FormGroup>
                 <StyledRange
@@ -162,7 +161,6 @@ const Controls = props => {
                     min={-100}
                     max={100}
                     onChange={onInputChange}
-                    data-test="velocityRange"
                 />
             </StyledForm>
 
