@@ -122,7 +122,7 @@ const Controls = props => {
         onVelocityChange(Number(val));
     };
 
-    const onKeyPressed = (e, onVelocityChange) => {
+    const onKeyPressed = e => {
         // If backspace is pressed
         if (e.keyCode === 8) {
             // Check for length on input element
