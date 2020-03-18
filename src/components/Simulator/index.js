@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Star from '../Star';
 import Controls from '../Controls';
+import space from '../../images/space-bg.png';
 //
 const StyledSimulator = styled.div`
     position: absolute;
@@ -11,6 +12,9 @@ const StyledSimulator = styled.div`
     height: 100%;
     min-height: 600px;
     min-width: 420px;
+
+    background: url(${space}) repeat bottom center;
+    background-size: 120% auto;
 `;
 
 const Simulator = () => {

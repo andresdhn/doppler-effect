@@ -1,7 +1,6 @@
 import React from 'react';
 import Simulator from './components/Simulator';
 import { createGlobalStyle } from 'styled-components';
-import space from './images/space-bg.png';
 //
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -25,8 +24,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         line-height: 1.2;
 
-        background: url(${space}) repeat bottom center;
-        background-size: 100% auto;
         background-color: #000000;
     }
 

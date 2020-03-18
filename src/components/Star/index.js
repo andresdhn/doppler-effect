@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import star from '../../images/star-small.png';
+import starInner from '../../images/star-inner.png';
 import crown from '../../images/star-crown.png';
 //
 const StarContainer = styled.div`
@@ -21,7 +22,7 @@ const StarContainer = styled.div`
 
 const glowAnimation = effect => keyframes`
     0 {
-        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 10px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
     40% {
         box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
@@ -30,7 +31,7 @@ const glowAnimation = effect => keyframes`
         box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
     }
     100% {
-        box-shadow: 0 0 20px 0px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 10px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
 `;
 
@@ -77,6 +78,11 @@ const StarCore = styled.div`
     transform: translate3d(-50%, -50%, 0);
 `;
 
+const slide = keyframes`
+	0% { background-position: 0 100%; }
+	100% { background-position: 620px 100%; }
+`;
+
 const StarImg = styled.div`
     position: absolute;
     top: 0;
@@ -87,6 +93,23 @@ const StarImg = styled.div`
 
     background: url(${star}) no-repeat top center;
     background-size: 100%;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 49%;
+        left: 49%;
+        width: 30%;
+        height: 30%;
+        border-radius: 50%;
+        transform: translate3d(-50%, -50%, 0);
+
+        background: url(${starInner}) repeat center center;
+        background-size: 124px 100%;
+
+        animation: ${slide} 50s infinite linear;
+        z-index: 99;
+    }
 `;
 
 const StarGlow = styled.div`
@@ -121,7 +144,7 @@ const Star = props => {
                 }}
             />
             <StarImg />
-            <StarGlow color={effect} />
+            <StarGlow color={effect} style={{ opacity: intensity}} />
         </StarContainer>
     );
 };
