@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 //
@@ -109,17 +109,34 @@ const StyledFooter = styled.footer`
 
 const Controls = props => {
     const { velocity, onVelocityChange } = props;
+    const inputEl = useRef(null);
 
     const onInputChange = e => {
         let val = e.target.value;
         let regx = /^-?[0-9]+$/;
 
-        if (val === '' || regx.test(val)) {
-            if (val >= -100 && val <= 100) {
-                onVelocityChange(parseFloat(val));
+        // Accept only Numbers and check value is within range
+        if (!regx.test(val) || !(val >= -100 && val <= 100)) {
+            return false;
+        }
+        onVelocityChange(Number(val));
+    };
+
+    const onKeyPressed = e => {
+        // If backSpace is pressed
+        if (e.keyCode === 8) {
+            // Check for length on input element
+            if (
+                // Check input length is 1 or 2 for negative value
+                e.target.value.length === 1 ||
+                (e.target.value.length === 2 && e.target.value.startsWith('-'))
+            ) {
+                // Replace with 0 update state and select for better UX
+                e.preventDefault();
+                onVelocityChange(0);
+                inputEl.current.select();
             }
         }
-        return false;
     };
 
     return (
@@ -129,11 +146,13 @@ const Controls = props => {
                     <label htmlFor="velocity">Velocity(Km/s)</label>
                     <StyledInput
                         type="number"
+                        ref={inputEl}
                         name="velocity"
                         value={velocity}
                         min={-100}
                         max={100}
                         onChange={onInputChange}
+                        onKeyDown={onKeyPressed}
                         data-test="velocityInput"
                     />
                 </FormGroup>
