@@ -160,6 +160,7 @@ const Controls = props => {
                     value={velocity}
                     min={-100}
                     max={100}
+                    step={velocity > 0 ? 10 : 1}
                     onChange={onInputChange}
                 />
             </StyledForm>

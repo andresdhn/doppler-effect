@@ -22,7 +22,7 @@ const StarContainer = styled.div`
 
 const glowAnimation = effect => keyframes`
     0 {
-        box-shadow: 0 0 20px 10px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 20px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
     40% {
         box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
@@ -31,25 +31,25 @@ const glowAnimation = effect => keyframes`
         box-shadow: 0 0 40px 20px rgba(${effect}, 0.5), inset 0 0 40px 20px rgba(${effect}, 0.2);
     }
     100% {
-        box-shadow: 0 0 20px 10px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
+        box-shadow: 0 0 20px 20px rgba(${effect}, 0.5), inset 0 0 20px 20px rgba(${effect}, 0.2);
     }
 `;
 
 const crownAnimation = keyframes`
     0 {
-        transform: rotate(0deg) scale(0.7);
+        transform: rotate(0deg) scale(1.1);
     }
     20% {
         transform: rotate(-20deg) scale(0.9);
     }
     40% {
-        transform: rotate(0deg) scale(0.5);
+        transform: rotate(0deg) scale(1.1);
     }
     60% {
         transform: rotate(-50deg) scale(0.9);
     }
     100% {
-        transform: rotate(0deg) scale(0.7);
+        transform: rotate(0deg) scale(1.1);
     }
 `;
 
@@ -94,7 +94,7 @@ const StarImg = styled.div`
     background: url(${star}) no-repeat top center;
     background-size: 100%;
 
-    &:before{
+    &:before {
         content: '';
         position: absolute;
         top: 49%;
@@ -136,7 +136,7 @@ const Star = props => {
     const intensity = Math.abs(parseFloat(velocity / 100));
 
     return (
-        <StarContainer data-test="starComponent">
+        <StarContainer>
             <StarCrown />
             <StarCore
                 style={{
@@ -144,7 +144,7 @@ const Star = props => {
                 }}
             />
             <StarImg />
-            <StarGlow color={effect} style={{ opacity: intensity}} />
+            <StarGlow color={effect} style={{ opacity: intensity }} />
         </StarContainer>
     );
 };
