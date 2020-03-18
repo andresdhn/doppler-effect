@@ -140,7 +140,7 @@ const Controls = props => {
     };
 
     return (
-        <StyledControls data-test="controlsComponent">
+        <StyledControls>
             <StyledForm>
                 <FormGroup>
                     <label htmlFor="velocity">Velocity(Km/s)</label>
@@ -182,6 +182,7 @@ const Controls = props => {
 
 Controls.propTypes = {
     velocity: PropTypes.number,
+    onVelocityChange: PropTypes.func,
 };
 
 export default Controls;

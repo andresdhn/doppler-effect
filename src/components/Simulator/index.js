@@ -25,7 +25,7 @@ const Simulator = () => {
     };
 
     return (
-        <StyledSimulator data-test="simulatorComponent">
+        <StyledSimulator>
             <Star velocity={velocity} />
             <Controls
                 velocity={velocity}
