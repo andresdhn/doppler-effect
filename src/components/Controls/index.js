@@ -166,7 +166,7 @@ const Controls = props => {
             </StyledForm>
 
             <StyledFooter>
-                The Doppler effect on light &ndash; Simulation by Andres
+                The Doppler effect on light simulation &ndash; by Andres
                 Hernandez{' '}
                 <a
                     href="https://github.com/andresdhn"
