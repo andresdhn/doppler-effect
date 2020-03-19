@@ -25,6 +25,8 @@ $ npm start
 
 ```
 
+Open Browser at `localhost:3000`
+
 ## Deploy
 
 ```
